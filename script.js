@@ -11,9 +11,15 @@ function validatefirstname(){
 }
 function validatelastname(){
     var lname=document.getElementById("lname");
-    
+    if(lname.value.length==0){
+        lname.style.border="2px solid red";
+        return false;
+    }
+    else{
+        lname.style.border="2px solid green";
+        return true;
+    }
 }
-
 function validateemail(){
     var email=document.getElementById("email");
     if(email.value.length==0){
@@ -37,3 +43,19 @@ const btn = document.querySelector(".btn");
        
             document.body.classList.toggle("active")
         })
+        
+function validatepass(){
+            var pass=document.getElementById("pass");
+            if(pass.value.length==0){
+                pass.style.border="2px solid red";
+                return false;
+            }
+            else if(!pass.value.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")){
+                pass.style.border="2px solid red";
+                return false;
+            }
+            else{
+                pass.style.border="2px solid green";
+                return true;
+            }
+        }
